@@ -12,7 +12,8 @@ public class PraktikumTest {
     @Test
     public void openPage() throws Exception{
         WebDriver driver = factory.getDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+//        driver.get("https://qa-scooter.praktikum-services.ru/");
+
     }
 
 }

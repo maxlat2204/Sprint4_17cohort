@@ -2,9 +2,12 @@ package praktikum;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.ExternalResource;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -15,6 +18,8 @@ public class DriverRule extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         initDriver();//открывает браузер
+        driver.get("https://qa-scooter.praktikum-services.ru/");//открывает страницу
+        closeСookies();//закрывает куки
     }
 
     //Метод After(закрывает браузер)
@@ -48,5 +53,13 @@ public class DriverRule extends ExternalResource {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+    }
+
+    //Закрывает куки
+    public void closeСookies(){
+        By coockiesCloseButton = By.id("rcc-confirm-button");
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(coockiesCloseButton));
+        driver.findElement(coockiesCloseButton).click();
     }
 }

@@ -1,4 +1,4 @@
 package praktikum.pages;
 
-public class QuestionPage {
+public class MainPage {
 }
