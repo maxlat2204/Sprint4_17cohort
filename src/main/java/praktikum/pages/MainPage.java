@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class MainPage {
     private final WebDriver driver;
 
+    public MainPage(WebDriver driver){
+        this.driver = driver;
+    }
 
     //Верхняя кнопка заказать
     protected final By upOrderButton = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
@@ -23,9 +26,6 @@ public class MainPage {
     protected final By yandexBuuton = By.xpath(".//img[@alt='Yandex']");
 
 
-    public MainPage(WebDriver driver){
-        this.driver = driver;
-    }
     //Метод нажатия на верхнюю кнопку Заказать
     public void clickUpOrderButton(){
         driver.findElement(upOrderButton).click();
