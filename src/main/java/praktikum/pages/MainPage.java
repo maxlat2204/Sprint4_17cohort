@@ -19,7 +19,7 @@ public class MainPage {
     //Кнопка Go! в статусе заказа
     protected final By goButton = By.className("Header_Button__28dPO");
     //Поле ввода Заказа
-    protected final By orderFieldInput = By.className("Input_Input__1iN_Z ");
+//    protected final By orderFieldInput = By.className("Input_Input__1iN_Z ");
     //Кнопка самокат в Шапке
     protected final By scooterButton = By.xpath(".//a[@class='Header_LogoScooter__3lsAR']/img[@alt='Scooter']");
     //Кнопка Яндекс в шапке
