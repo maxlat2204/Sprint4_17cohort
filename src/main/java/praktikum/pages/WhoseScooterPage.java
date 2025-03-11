@@ -11,7 +11,6 @@ import static org.junit.Assert.assertTrue;
 
 public class WhoseScooterPage {
     private final WebDriver driver;
-
     public WhoseScooterPage(WebDriver driver) {
         this.driver = driver;
     }
