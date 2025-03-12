@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import praktikum.EnvConfig;
 
 import java.time.Duration;
 
@@ -54,7 +55,7 @@ public class AboutRentPage {
 
     //Метод нажатия на кнопку да в окне Хотите оформить Заказ
     public void clickYesButton(){
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(yesButton));
         assertTrue(driver.findElement(yesButton).isEnabled());
         driver.findElement(yesButton).click();

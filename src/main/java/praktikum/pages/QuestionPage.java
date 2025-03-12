@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import praktikum.EnvConfig;
 
 import java.time.Duration;
 
@@ -62,7 +63,7 @@ public class QuestionPage {
     public String checkTextQuestion(By question, By questionText){
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(question));
         clickQuestion(question);
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(questionText));
         return getQuestionText(questionText);
     }

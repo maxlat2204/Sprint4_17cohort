@@ -18,7 +18,7 @@ public class DriverRule extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         initDriver();//открывает браузер
-        driver.get("https://qa-scooter.praktikum-services.ru/");//открывает страницу
+        driver.get(EnvConfig.BASE_URL);//открывает страницу
         closeСookies();//закрывает куки
     }
 
@@ -45,20 +45,20 @@ public class DriverRule extends ExternalResource {
     public void startBrowserChrome(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMLICIT_WAIT));
     }
 
     //Открывает браузер Firefox
     public void startBrowserFirefox(){
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMLICIT_WAIT));
     }
 
     //Закрывает куки
     public void closeСookies(){
         By coockiesCloseButton = By.id("rcc-confirm-button");
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(coockiesCloseButton));
         driver.findElement(coockiesCloseButton).click();
     }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import praktikum.EnvConfig;
 
 import java.time.Duration;
 
@@ -71,7 +72,7 @@ public class WhoseScooterPage {
 
     //Метод ввода данных в форму
     public void fillFormScooter(String name, String lastName, String address, int numberStation, String phone) {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(nameInput));
         fillNameWScooter(name);
         fillLastNameWScooter(lastName);
