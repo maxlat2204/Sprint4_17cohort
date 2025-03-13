@@ -62,10 +62,12 @@ public class AboutRentPage {
     }
 
     //Окно заказ оформлен
-    public final By orderPlaced = By.className("Order_ModalHeader__3FDaJ");
+    public final By orderPlaced = By.xpath(".//div[text()='Заказ оформлен']");
 
     //Метод потверждения заказа Финал
     public void orderPlacedFinal() {
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT))
+                .until(ExpectedConditions.visibilityOfElementLocated(orderPlaced));
         assertTrue("Заказ не оформлен",driver.findElement(orderPlaced).isDisplayed());
     }
 
